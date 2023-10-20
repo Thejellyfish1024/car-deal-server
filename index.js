@@ -30,6 +30,7 @@ async function run() {
 
     const database = client.db("carDealDB");
     const carCollection = database.collection("cars");
+    const adCollection = database.collection("advertisements")
 
 
     app.post('/cars', async(req,res) =>{
@@ -51,6 +52,14 @@ async function run() {
         const car = await carCollection.findOne(query)
         res.send(car)
     })
+
+    app.get('/advertisements', async(req,res)=>{
+      const cursor = adCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+  })
+
+    
 
 
     // Send a ping to confirm a successful connection
