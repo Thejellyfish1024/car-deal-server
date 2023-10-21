@@ -54,6 +54,21 @@ async function run() {
       res.send(result)
     })
 
+    app.get('/carts/:id', async(req,res) =>{
+      const id = req.params.id;
+      const query = {_id : id}
+      const cart = await cartCollection.findOne(query)
+      res.send(cart)
+    })
+
+    app.delete('/carts/:id', async(req,res) =>{
+      const id = req.params.id;
+      console.log('delete id number',id);
+      const query = {_id : id}
+      const result = await cartCollection.deleteOne(query)
+      res.send(result)
+    })
+
     app.get('/cars', async(req,res)=>{
         const cursor = carCollection.find();
         const result = await cursor.toArray();
