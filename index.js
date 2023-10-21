@@ -9,8 +9,6 @@ app.use(cors())
 app.use(express.json())
 // 
 
-// carDeal
-// nXwjncehXZY2soc6
 
 const uri = "mongodb+srv://carDeal:nXwjncehXZY2soc6@cluster0.s79pxyc.mongodb.net/?retryWrites=true&w=majority";
 
